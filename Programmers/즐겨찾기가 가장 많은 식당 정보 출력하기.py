@@ -1,0 +1,10 @@
+# https://school.programmers.co.kr/learn/courses/30/lessons/131123
+
+SELECT FOOD_TYPE, REST_ID, REST_NAME, FAVORITES
+FROM REST_INFO
+WHERE FAVORITES = (
+        SELECT MAX(FAVORITES)
+        FROM REST_INFO ri
+        WHERE REST_INFO.FOOD_TYPE = ri.FOOD_TYPE
+    )
+ORDER BY FOOD_TYPE DESC;
