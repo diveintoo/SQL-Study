@@ -2,7 +2,6 @@
 
 -- Write an SQL query to fix the names so that only the first character is uppercase and the rest are lowercase.
 
-select user_id,
-       concat(substring(upper(name), 1, 1), substring(lower(name), 2) as name
-from users
-order by user_id
+SELECT user_id, CONCAT(UPPER(SUBSTR(name, 1, 1)), LOWER(SUBSTR(name, 2))) AS name
+FROM Users
+ORDER BY user_id;
