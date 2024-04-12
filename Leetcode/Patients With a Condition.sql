@@ -1,9 +1,11 @@
--- 1527. Patients With a Condition
+-- https://leetcode.com/problems/patients-with-a-condition/description/?envType=study-plan-v2&envId=top-sql-50
 
--- Write an SQL query to report the patient_id, patient_name all conditions of patients who have Type I Diabetes. Type I Diabetes always starts with DIAB1 prefix
---
--- Return the result table in any order.
+-- USE LIKE
+SELECT patient_id, patient_name, conditions
+FROM Patients
+WHERE conditions LIKE 'DIAB1%' OR conditions LIKE '% DIAB1%';
 
-select *
-from patients
-where conditions like 'DIAB1%' or conditions like '% DIAB1%'
+-- USE Regular Expression
+SELECT patient_id, patient_name, conditions
+FROM Patients
+WHERE conditions REGEXP '\\bDIAB1';
