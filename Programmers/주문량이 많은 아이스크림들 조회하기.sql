@@ -1,0 +1,10 @@
+-- https://school.programmers.co.kr/learn/courses/30/lessons/133027
+
+SELECT fh.FLAVOR
+FROM FIRST_HALF fh
+JOIN (SELECT FLAVOR, SUM(TOTAL_ORDER) AS TOTAL_ORDER
+     FROM JULY
+     GROUP BY FLAVOR) j
+ON fh.FLAVOR = j.FLAVOR
+ORDER BY fh.TOTAL_ORDER + j.TOTAL_ORDER DESC
+LIMIT 3;
