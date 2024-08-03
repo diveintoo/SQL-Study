@@ -1,0 +1,7 @@
+-- https://school.programmers.co.kr/learn/courses/30/lessons/273710
+
+SELECT ITEM_ID, ITEM_NAME
+FROM ITEM_INFO
+LEFT JOIN ITEM_TREE USING(ITEM_ID)
+WHERE PARENT_ITEM_ID IS NULL
+ORDER BY ITEM_ID;
